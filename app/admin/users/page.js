@@ -162,12 +162,10 @@ const Users = () => {
   };
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="py-6 max-w-[100vw] mx-auto">
       <ToastContainer position="top-right" autoClose={3000} />
       
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">User Management</h1>
-        <button
+      <div className="flex justify-between items-center mb-6">        <button
           onClick={() => {
             setShowAddForm(!showAddForm);
             setEditingUser(null);

@@ -1,22 +1,12 @@
 'use client';
 
 import AdminNavbar from "@/components/AdminNavbar";
-import { Geist, Geist_Mono } from "next/font/google";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthToken } from "@/lib/useAuthToken";
+import AdminTop from "@/components/AdminTop";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function RootLayout({ children }) {
+export default function AdminLayout({ children }) {
   const router = useRouter();
   const [isAuthorized, setIsAuthorized] = useState(false);
   const { isAuthenticated, isAdmin } = useAuthToken();
@@ -36,8 +26,11 @@ export default function RootLayout({ children }) {
   }
 
   return (
-    <main className="bg-gray-900 text-gray-100 min-h-screen">
-      <AdminNavbar>{children}</AdminNavbar>
+    <main className="min-h-screen">
+      <AdminNavbar>
+        <AdminTop />
+        {children}
+        </AdminNavbar>
     </main>
   );
 }

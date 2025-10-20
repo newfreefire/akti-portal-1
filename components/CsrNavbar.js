@@ -31,7 +31,7 @@ export default function CsrNavbar({ children }) {
     { name: "Student Management", path: "/csr/student-management" },
     { name: "Settings", path: "/csr/settings" },
     { name: "Co-Working", path: "/csr/co-working" },
-
+    
   ];
 
   // Handle logout redirect
@@ -54,8 +54,7 @@ export default function CsrNavbar({ children }) {
       {/* 🍔 Hamburger Icon (Always visible to open/close sidebar) */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed top-4 z-50 p-2 rounded-full bg-gray-900 text-gray-300 border border-gray-700 
-        hover:text-blue-400 hover:border-blue-400 transition-all duration-300
+        className={`fixed top-5 z-50 p-2 rounded-full border transition-all duration-300 cursor-pointer
         ${isOpen ? "left-[15.5rem]" : "left-4"}
         `}
         aria-label="Toggle sidebar"
@@ -65,7 +64,7 @@ export default function CsrNavbar({ children }) {
 
       {/* 🧭 Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 h-screen w-64 bg-gray-900 border-r border-gray-800 shadow-xl flex flex-col
+        className={`fixed top-0 left-0 z-40 h-screen w-64 border-r shadow-xl flex flex-col
           transform transition-transform duration-500 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
         `}
@@ -93,10 +92,9 @@ export default function CsrNavbar({ children }) {
                   if (!isDesktop) setIsOpen(false);
                 }}
                 className={`block px-5 py-3 rounded-md text-sm font-medium transition-all duration-300
-                  ${
-                    active
-                      ? "bg-blue-600 text-white shadow-sm"
-                      : "text-gray-300 hover:bg-gray-800 hover:text-blue-400"
+                  ${active
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "hover:bg-accent hover:text-accent-foreground"
                   }
                 `}
               >
@@ -110,7 +108,7 @@ export default function CsrNavbar({ children }) {
         <div className="border-t border-gray-800 px-6 py-4">
           <button
             onClick={handleLogout}
-            className="w-full flex items-center justify-center gap-2 bg-gray-800 text-gray-300 hover:bg-blue-600 hover:text-white px-4 py-3 rounded-md transition-all duration-300 group"
+            className="w-full cursor-pointer flex items-center justify-center gap-2 px-4 py-3 rounded-md transition-all duration-300 group hover:bg-destructive hover:text-destructive-foreground"
           >
             <LogOut
               size={18}
@@ -124,14 +122,14 @@ export default function CsrNavbar({ children }) {
       {/* 🌓 Mobile Overlay */}
       {isOpen && !isDesktop && (
         <div
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-30"
+          className="fixed inset-0 backdrop-blur-sm z-30"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
 
       {/* 🧱 Main Content Area */}
       <main
-        className={`flex-1 transition-all duration-500 ease-in-out p-8
+        className={`flex-1 transition-all duration-500 ease-in-out px-8 py-6
           ${isDesktop ? (isOpen ? "lg:ml-64" : "lg:ml-0") : ""}
         `}
       >

@@ -88,7 +88,7 @@ const CsrSettings = () => {
   ];
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="py-6 max-w-[100vw] mx-auto">
       <ToastContainer position="top-right" autoClose={3000} />
       
       <h1 className="text-2xl font-bold text-gray-800 mb-6">Account Settings</h1>

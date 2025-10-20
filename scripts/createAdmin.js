@@ -1,16 +1,20 @@
 // scripts/createAdmin.js
 // Run this file using: node scripts/createAdmin.js
 
+// Load environment variables FIRST before any other imports
+import dotenv from "dotenv";
+dotenv.config({ path: ".env.local" });
+
+// Now import everything else
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import Admin from "../models/Admin.js";
 import "../lib/mongoose.js"; // ensures connection
 
-const MONGODB_URI = "mongodb://localhost:27017/akti-portal";
 
 async function createAdmin() {
   try {
-    await mongoose.connect(MONGODB_URI);
+    await mongoose.connect(process.env.MONGODB_URI);
     console.log("✅ Connected to MongoDB");
 
     const existing = await Admin.findOne({ username: "rahul12345" });

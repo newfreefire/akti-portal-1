@@ -1,22 +1,12 @@
 'use client';
 
 import CsrNavbar from "@/components/CsrNavbar";
-import { Geist, Geist_Mono } from "next/font/google";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthToken } from "@/lib/useAuthToken";
+import CsrTop from "@/components/CsrTop";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function RootLayout({ children }) {
+export default function CsrLayout({ children }) {
   const router = useRouter();
   const [isAuthorized, setIsAuthorized] = useState(false);
   const { isAuthenticated, isCSR, isAdmin } = useAuthToken();
@@ -39,8 +29,11 @@ export default function RootLayout({ children }) {
   }
 
   return (
-    <main className="bg-gray-900 text-gray-100 min-h-screen">
-      <CsrNavbar>{children}</CsrNavbar>
+    <main className="min-h-screen">
+      <CsrNavbar>
+        <CsrTop />
+        {children}
+        </CsrNavbar>
     </main>
   );
 }

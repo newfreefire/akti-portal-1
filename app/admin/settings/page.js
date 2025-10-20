@@ -25,11 +25,8 @@ const AdminSettings = () => {
   ];
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
-      <ToastContainer position="top-right" autoClose={3000} />
-      
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">System Settings</h1>
-      
+    <div className="py-6 max-w-[100vw] mx-auto">
+      <ToastContainer position="top-right" autoClose={3000} />      
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
         {/* Tabs */}
         <div className="flex border-b">

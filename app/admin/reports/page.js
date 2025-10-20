@@ -93,10 +93,8 @@ const AdminReports = () => {
   );
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4 md:mb-0">System Reports</h1>
-        
+    <div className="py-6 max-w-[100vw] mx-auto">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">   
         <div className="flex gap-2">
           <button 
             onClick={() => setTimeframe('monthly')} 

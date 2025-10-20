@@ -24,7 +24,7 @@ export default function LoginPage() {
   const [loginError, setLoginError] = useState('');
   const router = useRouter();
   const { setAuthToken, isAuthenticated, isAdmin, isCSR } = useAuthToken();
-  
+
   // Check if user is already logged in
   useEffect(() => {
     if (isAuthenticated()) {
@@ -62,7 +62,7 @@ export default function LoginPage() {
         const userRole = data.isAdmin ? 'admin' : (data.isCSR ? 'csr' : 'user');
         setAuthToken(data.token, data.userId, userRole);
         console.log('Login successful:', data);
-        
+
         // Redirect based on the server response
         router.push(data.redirect);
       } else {
@@ -83,10 +83,10 @@ export default function LoginPage() {
       <div className="min-h-screen">
         <div className="container mx-auto px-4 py-8">
           <div className="flex rounded-3xl items-center mt-5 justify-center min-h-full">
-            <div className="w-full max-w-6xl bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <div className="w-full max-w-6xl rounded-3xl shadow-2xl overflow-hidden">
               <div className="flex flex-col lg:flex-row">
                 {/* Left Section - Welcome Content */}
-                <div className="hidden md:block lg:w-1/2 p-8 lg:p-12 bg-gradient-to-br from-gray-50 to-white">
+                <div className="hidden md:block lg:w-1/2 p-8 lg:p-12 bg-white text-black">
                   <div className="mb-8 flex items-center justify-center">
                     <img
                       src="/logo.svg"
@@ -97,17 +97,15 @@ export default function LoginPage() {
                   </div>
 
                   <div className="mb-12 text-center lg:text-left">
-                    <h2 className="text-3xl font-bold lg:text-4xl text-center bg-gradient-to-r from-blue-800 to-black text-transparent bg-clip-text mb-4">
-                      Welcome Back!
-                    </h2>
-                    <p className="text-md text-center text-gray-600 font-medium">
+                    <h2 className="text-3xl font-bold lg:text-4xl text-center mb-4 bg-gradient-to-r from-blue-700 to-black bg-clip-text text-transparent">Welcome Back!</h2>
+                    <p className="text-md text-center font-medium">
                       Access your Attendance Management Portal
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-                      <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-4 mx-auto group-hover:bg-blue-200 transition-colors duration-300">
+                    <div className="rounded-2xl p-6 shadow-lg border hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+                      <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 mx-auto transition-colors duration-300">
                         <FaBolt className="text-blue-600 text-2xl transition-transform duration-300 group-hover:rotate-[25deg] group-hover:scale-110" />
                       </div>
                       <h3 className="text-lg font-semibold text-gray-800 text-center mb-2">
@@ -209,7 +207,7 @@ export default function LoginPage() {
                           {loginError}
                         </div>
                       )}
-                      
+
                       {/* Remember Me */}
                       <div className="flex items-center">
                         <label className="flex items-center cursor-pointer">
@@ -220,11 +218,10 @@ export default function LoginPage() {
                             className="sr-only"
                           />
                           <div
-                            className={`w-5 h-5 rounded border-2 transition-all duration-300 mr-3 flex items-center justify-center ${
-                              rememberMe
+                            className={`w-5 h-5 rounded border-2 transition-all duration-300 mr-3 flex items-center justify-center ${rememberMe
                                 ? 'bg-blue-600 border-blue-600'
                                 : 'border-gray-600 hover:border-gray-500'
-                            }`}
+                              }`}
                           >
                             {rememberMe && (
                               <FaCheckCircle className="text-white text-xs" />

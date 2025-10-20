@@ -17,7 +17,7 @@ export default function VideoBackground({ children }) {
       </video>
 
       {/* Overlay (optional dark layer for contrast) */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0"></div>
 
       {/* Foreground Content */}
       <div className="relative z-10 flex items-center justify-center h-full text-white">
